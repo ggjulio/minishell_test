@@ -6,7 +6,7 @@
 #    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 18:25:00 by charles           #+#    #+#              #
-#    Updated: 2020/09/11 19:35:26 by juligonz         ###   ########.fr        #
+#    Updated: 2020/09/11 22:57:22 by juligonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,17 +89,17 @@ def suite_interpolation(test):
     test("echo $A$B$C")
     test("echo $A$B$C$D")
 
-    test("echo [$A]", exports={"A": r"bonjour\je"})
-    test("echo [$A]", exports={"A": r"\b\\o\\\nj\\\\\\\our\\je\\\\"})
-    test("echo [$A]", exports={"A": r"   \b\\o\\\nj\\\\\\\our\\je\\\\"})
-    test("echo [$A]", exports={"A": r"\b\\o\\\nj\\\\\\\our\\je\\\\   "})
-    test("echo [$A]", exports={"A": r"  \b\\o\\\nj\\\\\\\our\\je\\\\ "})
-    test("echo [$A]", exports={"A": r"a  \b\\o\\\nj\\\\\\\our\\je\\\\ b"})
-    test("echo [$A]", exports={"A": r" a  \b\\o\\\nj\\\\\\\our\\je\\\\ b "})
-    test("echo [$A]", exports={"A": r" "})
-    test("echo [$A]", exports={"A": r"    "})
-    test("echo [$A]", exports={"A": r"\ "})
-    test("echo [$A]", exports={"A": r" \  "})
+    # test("echo [$A]", exports={"A": r"bonjour\je"})
+    # test("echo [$A]", exports={"A": r"\b\\o\\\nj\\\\\\\our\\je\\\\"})
+    # test("echo [$A]", exports={"A": r"   \b\\o\\\nj\\\\\\\our\\je\\\\"})
+    # test("echo [$A]", exports={"A": r"\b\\o\\\nj\\\\\\\our\\je\\\\   "})
+    # test("echo [$A]", exports={"A": r"  \b\\o\\\nj\\\\\\\our\\je\\\\ "})
+    # test("echo [$A]", exports={"A": r"a  \b\\o\\\nj\\\\\\\our\\je\\\\ b"})
+    # test("echo [$A]", exports={"A": r" a  \b\\o\\\nj\\\\\\\our\\je\\\\ b "})
+    # test("echo [$A]", exports={"A": r" "})
+    # test("echo [$A]", exports={"A": r"    "})
+    # test("echo [$A]", exports={"A": r"\ "})
+    # test("echo [$A]", exports={"A": r" \  "})
 
     test(r"echo \ \ \ \ \ \ \ $A\ \ \ \ \ \ ", exports={"A": "bonjour"})
     test(r"echo \ \ \ \ \ \ \ $A\ \ \ \ \ \ ", exports={"A": "bonjour je suis"})
@@ -108,12 +108,12 @@ def suite_interpolation(test):
     test('echo $A', exports={"A": "bonjour je suis splited"})
     test('echo $A', exports={"A": "bonjour     je     suis    splited"})
     test('echo $A', exports={"A": "   bonjour     je     suis    splited   "})
-    test('echo [$A]', exports={"A": "bonjour je suis splited"})
-    test('echo [$A]', exports={"A": "bonjour     je     suis    splited"})
-    test('echo [$A]', exports={"A": "   bonjour     je     suis    splited   "})
-    test('echo "[$A]"', exports={"A": "bonjour je suis splited"})
-    test('echo "[$A]"', exports={"A": "bonjour     je     suis    splited"})
-    test('echo "[$A]"', exports={"A": "   bonjour     je     suis    splited   "})
+    # test('echo [$A]', exports={"A": "bonjour je suis splited"})
+    # test('echo [$A]', exports={"A": "bonjour     je     suis    splited"})
+    # test('echo [$A]', exports={"A": "   bonjour     je     suis    splited   "})
+    # test('echo "[$A]"', exports={"A": "bonjour je suis splited"})
+    # test('echo "[$A]"', exports={"A": "bonjour     je     suis    splited"})
+    # test('echo "[$A]"', exports={"A": "   bonjour     je     suis    splited   "})
     test('echo \ $A', exports={"A": "bonjour je suis splited"})
     test('echo \ $A', exports={"A": "bonjour     je     suis    splited"})
     test('echo \ $A', exports={"A": "   bonjour     je     suis    splited   "})

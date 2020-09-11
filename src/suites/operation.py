@@ -1,14 +1,14 @@
-# ############################################################################ #
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    operation.py                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+         #
+#    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 18:24:52 by charles           #+#    #+#              #
-#    Updated: 2020/09/11 17:05:35 by charles          ###   ########.fr        #
+#    Updated: 2020/09/11 23:00:03 by juligonz         ###   ########.fr        #
 #                                                                              #
-# ############################################################################ #
+# **************************************************************************** #
 
 from suite import suite
 import hooks
@@ -25,6 +25,11 @@ def suite_end(test):
     test("; echo", hook=hooks.error_line0)
     test(" ;echo", hook=hooks.error_line0)
     test(" ; echo", hook=hooks.error_line0)
+    test(";", hook=hooks.error_line0)
+    test("echo a; echo b")
+    test("echo a; echo b;")
+    test("echo a; echo b; echo c")
+    test("echo a; echo b; echo c;")
     test("echo a; echo b; echo c; echo d; echo e; echo f; echo g; echo h; echo i;" +
          "echo j; echo k; echo l; echo m; echo c; echo c; echo c; echo c; echo c;" +
          "echo c; echo c; echo c; echo v; echo w; echo x; echo y; echo z")
