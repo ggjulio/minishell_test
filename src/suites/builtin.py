@@ -6,7 +6,7 @@
 #    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 18:24:43 by charles           #+#    #+#              #
-#    Updated: 2020/09/13 08:16:36 by juligonz         ###   ########.fr        #
+#    Updated: 2020/09/13 08:34:20 by juligonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,6 +109,9 @@ def suite_cd(test):
     test("cd ..; cd - ; pwd; echo $OLDPWD");
     test("unset OLDPWD; cd - ; pwd; echo $OLDPWD");
     test("cd d; cd -; echo $OLDPWD; echo $PWD", setup="mkdir d")
+    test("cd $HOME ; pwd; echo $HOME");
+    test("unset HOME; cd $HOME ; pwd; echo $HOME");
+    test("cd d; cd $HOME; echo $OLDPWD; pwd; echo $PWD", setup="mkdir d")
     test("cd ../..; pwd; echo $PWD");
     test("cd ../../..; pwd; echo $PWD");
     test("cd ../../../..; pwd; echo $PWD");
