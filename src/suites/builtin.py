@@ -6,7 +6,7 @@
 #    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 18:24:43 by charles           #+#    #+#              #
-#    Updated: 2020/09/16 16:53:41 by juligonz         ###   ########.fr        #
+#    Updated: 2020/09/16 23:39:14 by juligonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -104,6 +104,7 @@ def suite_export(test):
 
 @suite()
 def suite_cd(test):
+    test("cd");
     test("cd .; pwd; echo $PWD");
     test("cd ..; pwd; echo $PWD");
     test("cd ..; cd - ; pwd; echo $OLDPWD");
