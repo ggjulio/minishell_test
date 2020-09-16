@@ -6,7 +6,7 @@
 #    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 18:24:52 by charles           #+#    #+#              #
-#    Updated: 2020/09/11 23:00:03 by juligonz         ###   ########.fr        #
+#    Updated: 2020/09/16 16:59:44 by juligonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ def suite_pipe(test):
     test("ls -l | cat -e", setup="touch a b c d; mkdir m1 m2 m3")
     test("ls -l | cat -e | cat | cat | cat", setup="touch a b c d; mkdir m1 m2 m3")
     test("ls -l | cat -e | cat -e | cat -e | cat -e", setup="touch a b c d; mkdir m1 m2 m3")
-    test("ls -l | cat -e < a", setup="touch a b c d; mkdir m1 m2 m3; echo bonjour > a")
+    test("touch a b c d; mkdir m1 m2 m3; echo bonjour > a ;" + "ls -l | cat -e < a")
 
     test("echo|", hook=hooks.discard)
     test("echo |", hook=hooks.discard)
@@ -60,8 +60,6 @@ def suite_pipe(test):
 
     test("echo a | export A=a; echo $A")
     test("export A=a | cat; echo $A")
-    # test("echo a | A=a; echo $A")
-    # test("A=a | cat; echo $A")
 
 @suite(bonus=True)
 def suite_and(test):

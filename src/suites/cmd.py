@@ -1,14 +1,14 @@
-# ############################################################################ #
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    cmd.py                                             :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: charles <charles.cabergs@gmail.com>        +#+  +:+       +#+         #
+#    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 15:11:46 by charles           #+#    #+#              #
-#    Updated: 2020/09/11 16:34:19 by charles          ###   ########.fr        #
+#    Updated: 2020/09/16 16:57:42 by juligonz         ###   ########.fr        #
 #                                                                              #
-# ############################################################################ #
+# **************************************************************************** #
 
 import distutils
 
@@ -101,7 +101,6 @@ def suite_cmd(test):
     test("notfound")
     test("notfound a b c")
     test('echo "\\"" >>a"b""c"  ', files=["abc"])
-    test("echo " + ''.join([chr(i) for i in range(1, 127) if chr(i) not in '\n`"\'()|&><']))
     test("echo foo>bar", files=["bar"])
     test("echo foo >bar", files=["bar"])
     test("echo foo> bar", files=["bar"])
