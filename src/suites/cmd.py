@@ -6,7 +6,7 @@
 #    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 15:11:46 by charles           #+#    #+#              #
-#    Updated: 2020/09/16 16:57:42 by juligonz         ###   ########.fr        #
+#    Updated: 2020/09/16 23:34:16 by juligonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -105,7 +105,10 @@ def suite_cmd(test):
     test("echo foo >bar", files=["bar"])
     test("echo foo> bar", files=["bar"])
     test("echo foo > bar", files=["bar"])
-
+    test("echo a as df sad f as df qw e  qwe  as df asd f as df as d fas d f"
+         "asd f asd f asdf asdf  asdf  asd f asd f asd f asd f as df as df a"
+         "asd f asd f asdf asdf  asdf  asd f asd f asd f asd f as df as df a"
+         "asd f asd f asdf asdf  asdf  asd f asd f asd f asd f as df as df a")
 
 @suite()
 def suite_status(test):
