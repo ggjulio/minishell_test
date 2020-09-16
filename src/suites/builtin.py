@@ -6,7 +6,7 @@
 #    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 18:24:43 by charles           #+#    #+#              #
-#    Updated: 2020/09/16 16:46:37 by juligonz         ###   ########.fr        #
+#    Updated: 2020/09/16 16:53:41 by juligonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,9 +110,9 @@ def suite_cd(test):
     test("cd ; pwd");
     test("cd ; echo $PWD; pwd");
     test("unset OLDPWD; cd - ; pwd; echo $OLDPWD");
-    test("mkdir d" + "cd d; cd -; echo $OLDPWD; echo $PWD")
-    test("mkdir d" + "cd d; cd -; echo $PWD")
-    test("mkdir d" + "cd d; cd -; echo $OLDPWD")
+    test("mkdir d ; " + "cd d ; cd - ; echo $OLDPWD ; echo $PWD ; " + "rm -r d")
+    test("mkdir d ; " + "cd d ; cd - ; echo $PWD ; " + "rm -r d")
+    test("mkdir d ; " + "cd d ; cd - ; echo $OLDPWD ; " + "rm -r d")
     test("cd $HOME ; pwd; echo $HOME");
     test("unset HOME; cd $HOME ; pwd; echo $HOME");
     test("cd d; cd $HOME; echo $OLDPWD; pwd; echo $PWD", setup="mkdir d")
@@ -127,16 +127,11 @@ def suite_cd(test):
     test("cd '' ''; pwd; echo $PWD");
     test("cd '' '' ''; pwd; echo $PWD");
     test("cd ' '; pwd; echo $PWD");
-    # test("cd '\t'; pwd; echo $PWD");
-    # test("cd '\t   \t\t\t    '; pwd; echo $PWD");
     test("cd d ''; pwd; echo $PWD", setup="mkdir d")
     test("cd d d; pwd; echo $PWD", setup="mkdir d")
     test("cd d ' '; pwd; echo $PWD", setup="mkdir d")
     test("cd $HOME; pwd; echo $PWD");
     test("cd $HOME; pwd; echo $PWD", exports={"HOME": os.getenv("HOME")});
-    # test("cd ~; pwd; echo $PWD"); # do we have to handle ~ ?
-    # test("cd ~/..; pwd; echo $PWD");
-    # test("cd ~/../..; pwd; echo $PWD");
     test("cd /; pwd; echo $PWD");
     test("cd /.; pwd; echo $PWD");
     test("cd /./; pwd; echo $PWD");
@@ -248,7 +243,6 @@ def suite_pwd(test):
     test("pwd", setup="cd /")
     test("pwd", setup="cd $HOME")
     test("pwd | cat -e")
-    test("cd lnk; rmdir ../d; pwd", setup="mkdir d; ln -s d lnk")
 
 @suite()
 def suite_env(test):
