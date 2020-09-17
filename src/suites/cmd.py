@@ -6,7 +6,7 @@
 #    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 15:11:46 by charles           #+#    #+#              #
-#    Updated: 2020/09/16 23:34:16 by juligonz         ###   ########.fr        #
+#    Updated: 2020/09/17 02:13:05 by juligonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -192,15 +192,7 @@ def suite_cmd_path(test):
     test("./somelink4", setup="touch somefile; ln -s somefile somelink1; ln -s somelink1 somelink2;" +
                                                "ln -s somelink2 somelink3; ln -s somelink3 somelink4")
 
-    test("./somelink2ls", setup="cp " + ls_path + " somefile;" +
-                                "ln -s somefile somelink1; ln -s somelink1 somelink2")
-    test("./somelink3ls", setup="cp " + ls_path + " somefile;" +
-                                "ln -s somefile somelink1; ln -s somelink1 somelink2;" +
-                                "ln -s somelink2 somelink3")
-    test("./somelink4ls", setup="cp " + ls_path + " somefile;" +
-                                "ln -s somefile somelink1; ln -s somelink1 somelink2;" +
-                                "ln -s somelink2 somelink3; ln -s somelink3 somelink4")
-
+ 
     test("_", setup="touch _")
     test("'-'", setup="touch -")
     test("./_", setup="touch _")

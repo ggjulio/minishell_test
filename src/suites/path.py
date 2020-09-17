@@ -1,14 +1,14 @@
-# ############################################################################ #
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    path.py                                            :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: charles <me@cacharle.xyz>                  +#+  +:+       +#+         #
+#    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/09 15:12:58 by charles           #+#    #+#              #
-#    Updated: 2020/09/09 15:39:17 by charles          ###   ########.fr        #
+#    Updated: 2020/09/17 02:11:40 by juligonz         ###   ########.fr        #
 #                                                                              #
-# ############################################################################ #
+# **************************************************************************** #
 
 import config
 from suite import suite
@@ -60,7 +60,6 @@ def suite_path(test):
     test("a", setup="mkdir path && cp /bin/ls ./path/a && chmod 7777 ./path/a", exports={"PATH": "path"})
     test("a", setup="mkdir path && cp /bin/ls ./path/a && chmod 0000 ./path/a", exports={"PATH": "path"})
 
-    test("b", setup="mkdir path && cp /bin/ls ./path/a && ln -s ./path/a ./path/b", exports={"PATH": "path"})
 
     test("ls", exports={"PATH": "doesnotexits"})
     test("ls", exports={"PATH": "doesnotexits:asdfasdfas"})
