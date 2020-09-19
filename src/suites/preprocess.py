@@ -6,7 +6,7 @@
 #    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 18:25:00 by charles           #+#    #+#              #
-#    Updated: 2020/09/19 17:06:37 by juligonz         ###   ########.fr        #
+#    Updated: 2020/09/19 17:53:08 by juligonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,10 +88,7 @@ def suite_interpolation(test):
     test("echo $A$B")
     test("echo $A$B$C")
     test("echo $A$B$C$D")
-    test("echo $'A'")
-    test('echo $"A"')
-    test("echo $ 'A'")
-    test('echo $ "A"')
+
 
     # test("echo [$A]", exports={"A": r"bonjour\je"})
     # test("echo [$A]", exports={"A": r"\b\\o\\\nj\\\\\\\our\\je\\\\"})
@@ -174,6 +171,19 @@ def suite_interpolation(test):
 
     test('echo $A$B$C', exports={"A": "", "B": "", "C": ""})
 
+    test("echo $'A'")
+    test("echo $ 'A'")
+    test("echo $'A $A'", exports={"A":"foo"})
+    test("echo $'A $ A'", exports={"A":"foo"})
+    test("echo $ 'A $A'",  exports={"A":"foo"})
+    test("echo $ 'A $ A'",  exports={"A":"foo"})
+
+    test('echo $"A"')
+    test('echo $ "A"')
+    test('echo $"A $A"',  exports={"A":"foo"})
+    test('echo $"A $ A"',  exports={"A":"foo"})
+    test('echo $ "A $A"',  exports={"A":"foo"})
+    test('echo $ "A $ A"',  exports={"A":"foo"})
 
 @suite()
 def suite_escape(test):
