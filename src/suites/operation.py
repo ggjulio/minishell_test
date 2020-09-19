@@ -6,7 +6,7 @@
 #    By: juligonz <juligonz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/15 18:24:52 by charles           #+#    #+#              #
-#    Updated: 2020/09/19 17:14:09 by juligonz         ###   ########.fr        #
+#    Updated: 2020/09/20 00:01:19 by juligonz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ def suite_pipe(test):
     test("touch a b c d; mkdir m1 m2 m3; echo bonjour > a ;" + "ls -l | cat -e < a")
     test("echo bonjour > a;ls -l | cat -e < a")
     test("ls -l > out | cat ; cat out")
-    test("ls -l | cat ; cat out")
+    test("ls -l | cat ;")
+    test("ls -l > 4 | cat")
     
     test("echo|", hook=hooks.discard)
     test("echo |", hook=hooks.discard)
